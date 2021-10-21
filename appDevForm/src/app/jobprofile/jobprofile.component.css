@@ -1,0 +1,31 @@
+div.jobprofile{
+  display: flex;
+  flex-direction: row;
+}
+
+.login-page {
+  width: 35%;
+  margin: 50px auto 0 auto;
+  margin-bottom: 5%
+  }
+  
+.login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+.output-page{
+    width: 35%;
+    margin: 50px auto 0 auto;
+    margin-bottom: 5%
+  }
+
+  .output-list{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .test-input {
+    border-bottom: 1px solid grey;
+    margin-bottom: 10px;
+  }

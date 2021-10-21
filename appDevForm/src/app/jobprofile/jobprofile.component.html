@@ -1,0 +1,75 @@
+<div class="jobprofile">
+<mat-card class="login-page">
+    <mat-card-title>Job Profile</mat-card-title>
+    <mat-card-content>
+      <form class="login-form data-form" [formGroup]="form">
+
+      <mat-form-field>
+        <! –– First Name ––>
+      <input matInput type="fname" formControlName="fname" 
+      name="fname" placeholder="First Name" 
+      />
+      <mat-error *ngIf="fname.errors?.required"
+      >First Name is Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <! –– Last Name ––>
+      <input matInput type="lname" formControlName="lname" 
+      name="lname" placeholder="Last Name" 
+      />
+      <mat-error *ngIf="lname.errors?.required"
+      >Last Name is Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <! –– EMAIL ––>
+          <input matInput type="email" formControlName="email" 
+          name="email" placeholder="Email" 
+          />
+          <mat-error *ngIf="email.errors?.required"
+          >the email is required</mat-error>
+  
+          <mat-error *ngIf="email.errors?.email"
+          >the email is inavlid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+            <! –– Company ––>
+          <input matInput type="company" formControlName="company" 
+          name="company" placeholder="Company" 
+          />
+          <mat-error *ngIf="company.errors?.required"
+          >Company Name is Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+            <! –– Salary ––>
+          <input matInput type="number" formControlName="currency" 
+          name="currency" placeholder="Monthly Salary" 
+          />
+          <mat-error *ngIf="currency.errors?.required"
+          >Monthly Salary is required</mat-error>
+    </mat-form-field>
+  
+        <button mat-raised-button color="warn" [disabled]="!form.valid" (click)=onOutput()>Enter</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="output-page">
+    <mat-card-title>Output Page</mat-card-title>
+    <mat-list>
+        <mat-list-item>Name: {{output.lastname}}, {{output.firstname}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Email: {{output.email}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Company: {{output.company}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Salary: P{{output.salary}}.00</mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+
+</div>
+  

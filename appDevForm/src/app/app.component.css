@@ -1,0 +1,9 @@
+.bcrypt{
+    background-color: rgb(216, 191, 156);
+}
+
+a{
+    padding-top: 50px;
+    justify-content: center;
+    display: flex;
+}

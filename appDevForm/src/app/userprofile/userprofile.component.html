@@ -1,0 +1,90 @@
+<div class="userprofile">
+<mat-card class="login-page">
+    <mat-card-title>User Profile</mat-card-title>
+    <mat-card-content>
+      <form class="login-form data-form" 
+      (click)="onSubmit (loginForm)" #loginForm="ngForm">
+  
+        <mat-form-field>
+        <! –– FIRST NAME ––>
+        <input matInput type="name" name="fname" fname 
+          #fname="ngModel" required [(ngModel)]="val.fname" placeholder="First Name"
+          [ngModelOptions]="{updateOn: 'blur'}"/>
+          <mat-error *ngIf="fname.errors?.required">
+            First Name is Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+        <! –– LAST NAME ––>
+        <input matInput type="name" name="lname" fname 
+          #lname="ngModel" required [(ngModel)]="val.lname" placeholder="Last Name"
+          [ngModelOptions]="{updateOn: 'blur'}"/>
+          <mat-error *ngIf="lname.errors?.required">
+            Last Name is Required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+        <! –– EMAIL ––>
+        <input matInput type="email" name="email" email 
+          #email="ngModel" required [(ngModel)]="val.email" placeholder="Email"
+          [ngModelOptions]="{updateOn: 'blur'}" (onEmailChange)="onEmailChange(email)"/>
+          <mat-error *ngIf="email.errors?.required">
+            email is required
+          </mat-error>
+            <mat-error *ngIf="email.errors?.email">
+            email is not valid
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+        <! –– MOBILE NUMBER ––>
+        <input matInput type="number" name="mnumber" mnumber
+          #mnumber="ngModel" required [(ngModel)]="val.mnumber" placeholder="Mobile Number"
+          [ngModelOptions]="{updateOn: 'blur'}" minlength="6"/>
+
+          <mat-error *ngIf="mnumber.errors?.required">
+           Mobile Number is Required
+          </mat-error>
+
+          <mat-error *ngIf="password.errors?.minlength">
+            Mobile Number Must Be 11 Digits
+          </mat-error>
+        </mat-form-field>
+  
+        <! –– PASSWORD ––>
+        <mat-form-field>
+          <input matInput type="password" name="password"
+          #password="ngModel" required [(ngModel)]="val.password" placeholder="Password"
+          minlength="6"/>
+  
+          <mat-error *ngIf="password.errors?.required">
+            password is required
+          </mat-error>
+  
+          <mat-error *ngIf="password.errors?.minlength">
+            email must be astleast 6 characters
+          </mat-error>
+        </mat-form-field>
+  
+        <button mat-raised-button color="warn" [disabled]="!fname.value || !email.value || !email.valid || !lname.value || !mnumber.value || !password.value " (click)=onOutput()>Enter</button>
+      </form>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="output-page">
+    <mat-card-title>Output Page</mat-card-title>
+    <mat-list>
+        <mat-list-item>Name: {{output.lastname}}, {{output.firstname}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Email: {{output.email}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Mobile Number: {{output.mobile}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Password: {{output.password}}</mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+</div>
+  
